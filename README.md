@@ -14,6 +14,8 @@ This font url will be converted to `/_next/static/media/...` and will not use as
 Run this repo to reproduce this example
 `npm run build && npm run dev`
 
+Notice the font fails to load because it's url has no `assetPrefix`. All the other static assets are prefixed with `assetPrefix`
+
 # Custom Express Server example
 
 Most of the time the default Next.js server will be enough but there are times you'll want to run your own server to integrate into an existing application. Next.js provides [a custom server api](https://nextjs.org/docs/advanced-features/custom-server).
