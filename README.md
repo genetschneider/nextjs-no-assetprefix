@@ -1,3 +1,19 @@
+# No asset prefix
+This repo is a reproduction example of a `assetPrefix` bug that occurs in nextjs. References to files in css (i.e url()) are not using assetPrefix when they should.
+
+Consider a font-face in a css file
+```
+@font-face {
+  font-family: custom-font;
+  src: url("./fonts/Itim-Regular.ttf");
+}
+```
+
+This font url will be converted to `/_next/static/media/...` and will not use assetPrefix.
+
+Run this repo to reproduce this example
+`npm run build && npm run dev`
+
 # Custom Express Server example
 
 Most of the time the default Next.js server will be enough but there are times you'll want to run your own server to integrate into an existing application. Next.js provides [a custom server api](https://nextjs.org/docs/advanced-features/custom-server).

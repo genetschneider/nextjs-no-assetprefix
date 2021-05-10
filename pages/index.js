@@ -2,17 +2,22 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <ul>
-      <li>
-        <Link href="/b" as="/a">
-          <a>a</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/a" as="/b">
-          <a>b</a>
-        </Link>
-      </li>
-    </ul>
+    <div>
+      <ul>
+        <li>
+          <Link href="/b" as="/a">
+            <a>a</a>
+          </Link>
+        </li>
+      </ul>
+      Should be in custom font
+    </div>
   )
+}
+
+// Page has server side data dependencies
+export async function getServerSideProps(_) {
+  return {
+    props: {},
+  }
 }
