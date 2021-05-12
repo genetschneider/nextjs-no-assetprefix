@@ -13,6 +13,7 @@ app.setAssetPrefix(assetPrefix)
 app.prepare().then(() => {
   const server = express()
 
+  // mock asset prefix cdn
   server.use((req, res, next) => {
     // Ensure all static requests have 'assetPrefix'
     if (req.url.includes('_next/static') && !req.url.startsWith(assetPrefix)) {
@@ -21,7 +22,6 @@ app.prepare().then(() => {
       return;
     }
 
-    // mock asset prefix
     req.url = req.url.replace(assetPrefix, '');
 
     next();
